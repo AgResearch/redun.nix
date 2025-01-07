@@ -78,8 +78,13 @@
       };
       colorama = {
         buildPythonPackage.pyproject = true;
-        # mkDerivation.nativeBuildInputs = [
-        # ];
+        mkDerivation = {
+          nativeBuildInputs = [
+            config.deps.python311Packages.hatchling
+            # config.deps.python311Packages.hatch-vcs
+            # config.deps.python311Packages.hatch-fancy-pypi-readme
+          ];
+        };
       };
       frozenlist = {
         buildPythonPackage.pyproject = true;
@@ -106,15 +111,15 @@
         buildPythonPackage.pyproject = true;
         mkDerivation.nativeBuildInputs = [
           config.deps.python311Packages.hatchling
-          #   config.deps.python311Packages.hatch-vcs
+          config.deps.python311Packages.hatch-vcs
         ];
       };
       propcache = {
         buildPythonPackage.pyproject = true;
-        # mkDerivation.nativeBuildInputs = [
-        #   config.deps.python311Packages.hatchling
-        #   config.deps.python311Packages.hatch-vcs
-        # ];
+        mkDerivation.nativeBuildInputs = [
+          config.deps.python311Packages.expandvars
+          config.deps.python311Packages.cython
+        ];
       };
       typing-extensions = {
         buildPythonPackage.pyproject = true;
