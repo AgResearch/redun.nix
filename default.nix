@@ -116,7 +116,12 @@
           config.deps.python311Packages.flit
         ];
       };
-      mdurl.buildPythonPackage.pyproject = true;
+      mdurl = {
+        buildPythonPackage.pyproject = true;
+        mkDerivation.nativeBuildInputs = [
+          config.deps.python311Packages.flit
+        ];
+      };
       platformdirs = {
         buildPythonPackage.pyproject = true;
         mkDerivation.nativeBuildInputs = [
@@ -131,10 +136,24 @@
           config.deps.python311Packages.cython
         ];
       };
+      pygments = {
+        buildPythonPackage.pyproject = true;
+        mkDerivation.nativeBuildInputs = [
+          config.deps.python311Packages.hatchling
+          # config.deps.python311Packages.hatch-vcs
+        ];
+      };
       typing-extensions = {
         buildPythonPackage.pyproject = true;
         mkDerivation.nativeBuildInputs = [
           config.deps.python311Packages.flit
+        ];
+      };
+      urllib3 = {
+        buildPythonPackage.pyproject = true;
+        mkDerivation.nativeBuildInputs = [
+          config.deps.python311Packages.hatchling
+          config.deps.python311Packages.hatch-vcs
         ];
       };
     };
