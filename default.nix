@@ -66,11 +66,15 @@
       };
       attrs = {
         buildPythonPackage.pyproject = true;
-        mkDerivation.nativeBuildInputs = [
-          config.deps.python311Packages.hatchling
-          config.deps.python311Packages.hatch-vcs
-          config.deps.python311Packages.hatch-fancy-pypi-readme
-        ];
+        mkDerivation = {
+          patches = [ ./patches/attrs-24.3.0.license-files.patch ];
+
+          nativeBuildInputs = [
+            config.deps.python311Packages.hatchling
+            config.deps.python311Packages.hatch-vcs
+            config.deps.python311Packages.hatch-fancy-pypi-readme
+          ];
+        };
       };
       colorama = {
         buildPythonPackage.pyproject = true;
