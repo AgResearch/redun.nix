@@ -148,6 +148,16 @@
             config.deps.python311Packages.hatchling
           ];
         };
+        python-dateutil = {
+          buildPythonPackage.pyproject = true;
+          mkDerivation = {
+            patches = [ ./patches/python-dateutil-2.9.0.post0.setuptools-scm-version.patch ];
+
+            nativeBuildInputs = [
+              config.deps.python311Packages.setuptools-scm
+            ];
+          };
+        };
         typing-extensions = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
