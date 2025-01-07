@@ -86,6 +86,16 @@
           ];
         };
       };
+      fancycompleter = {
+        buildPythonPackage.pyproject = true;
+        mkDerivation = {
+          patches = [ ./patches/fancycompleter-0.9.1.pyproject.patch ];
+
+          nativeBuildInputs = [
+            config.deps.python311Packages.distutils
+          ];
+        };
+      };
       frozenlist = {
         buildPythonPackage.pyproject = true;
         mkDerivation.nativeBuildInputs = [
