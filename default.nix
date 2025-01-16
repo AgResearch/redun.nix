@@ -163,9 +163,6 @@
             ];
           };
         };
-        redun = {
-          buildPythonPackage.pyproject = true;
-        };
         rich = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
