@@ -34,7 +34,7 @@
       lib.mapAttrsToList (name: version: "${name}==${version}") (
         lib.attrsets.concatMapAttrs
           (name: spec:
-            if (lib.attrsets.hasAttr "version" spec) then
+            if (lib.isAttrs spec && lib.attrsets.hasAttr "version" spec) then
               { ${name} = spec.version; }
             else
               { }
@@ -52,22 +52,28 @@
     ];
 
     overrides =
-      {
-        aiobotocore = {
-          buildPythonPackage.pyproject = true;
+      let
+        withFlit = { config, ... }: {
+          config.mkDerivation = {
+            nativeBuildInputs = [ config.deps.python3Packages.flit ];
+          };
         };
+        withPyProject = { config, ... }: {
+          config.buildPythonPackage.pyproject = true;
+        };
+      in
+      {
+        aiobotocore = withPyProject;
         aiohappyeyeballs = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
             config.deps.python3Packages.poetry-core
           ];
         };
-        aioitertools = {
-          buildPythonPackage.pyproject = true;
-          mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.flit
-          ];
-        };
+        aioitertools.imports = [
+          withPyProject
+          withFlit
+        ];
         attrs = {
           buildPythonPackage.pyproject = true;
           mkDerivation = {
