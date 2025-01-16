@@ -109,6 +109,9 @@
         };
         markdown-it-py = {
           buildPythonPackage.pyproject = true;
+          mkDerivation.nativeBuildInputs = [
+            config.deps.python311Packages.flit
+          ];
         };
         mdit-py-plugins = {
           buildPythonPackage = {
@@ -117,6 +120,7 @@
           mkDerivation = {
             nativeBuildInputs = [
               config.deps.python311Packages.flit
+              config.deps.python311Packages.markdown-it-py
             ];
 
             preInstallPhases = [ ]; # inhibit pythonRuntimeDepsCheck because markdown-it-py is not available yet
@@ -163,6 +167,9 @@
           mkDerivation.nativeBuildInputs = [
             config.deps.python311Packages.flit
           ];
+        };
+        uc-micro-py = {
+          buildPythonPackage.pyproject = true;
         };
         urllib3 = {
           buildPythonPackage.pyproject = true;
