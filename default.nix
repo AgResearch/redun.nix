@@ -1,5 +1,4 @@
 { config
-, lib
 , dream2nix
 , ...
 }: {
@@ -122,8 +121,6 @@
               config.deps.python311Packages.flit
               config.deps.python311Packages.markdown-it-py
             ];
-
-            preInstallPhases = [ ]; # inhibit pythonRuntimeDepsCheck because markdown-it-py is not available yet
           };
         };
         mdurl = {
