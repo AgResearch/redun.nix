@@ -1,4 +1,5 @@
 { config
+, lib
 , dream2nix
 , ...
 }: {
@@ -27,8 +28,19 @@
   };
 
   paths.lockFile = "lock.${config.deps.stdenv.system}.json";
-  pip = {
-    requirementsList = [ "${config.name}==${config.version}" ];
+  pip = rec {
+    requirementsList = [ "${config.name}==${config.version}" ] ++
+      # incorporate each version specified below in `overrides` into `requirementsList`
+      lib.mapAttrsToList (name: version: "${name}==${version}") (
+        lib.attrsets.concatMapAttrs
+          (name: spec:
+            if (lib.attrsets.hasAttr "version" spec) then
+              { ${name} = spec.version; }
+            else
+              { }
+          )
+          overrides
+      );
 
     pipFlags = [
       "--no-binary"
@@ -173,6 +185,9 @@
           ];
         };
         typing-extensions = {
+          # match version with nixpkgs/nixos-24.05
+          version = "4.11.0";
+
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
             config.deps.python3Packages.flit

@@ -36,7 +36,7 @@
           modules = [
             # Import our actual package definiton as a dream2nix module from ./default.nix
             ./default.nix
-            ({ config, ... }: {
+            ({ config, lib, ... }: {
               # Aid dream2nix to find the project root. This setup should also works for mono
               # repos. If you only have a single project, the defaults should be good enough.
               paths.projectRoot = ./.;
@@ -44,10 +44,10 @@
               paths.projectRootFile = "flake.nix";
               paths.package = ./.;
 
-              mkDerivation = {
-                nativeBuildInputs = [
-                  config.deps.python3Packages.setuptools
-                ];
+              buildPythonPackage.pyproject = lib.mkDefault true;
+              mkDerivation.nativeBuildInputs = with config.deps.python3Packages; [ setuptools wheel ];
+              pip = {
+                ignoredDependencies = [ "wheel" "setuptools" ];
               };
             })
           ];
