@@ -44,6 +44,9 @@
 
     overrides =
       {
+        aiobotocore = {
+          buildPythonPackage.pyproject = true;
+        };
         aiohappyeyeballs = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
@@ -89,8 +92,8 @@
         frozenlist = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python311Packages.expandvars
             config.deps.python311Packages.cython
+            config.deps.python311Packages.expandvars
           ];
         };
         fsspec = {
@@ -112,10 +115,11 @@
             config.deps.python311Packages.flit
           ];
         };
+        linkify-it-py = {
+          buildPythonPackage.pyproject = true;
+        };
         mdit-py-plugins = {
-          buildPythonPackage = {
-            pyproject = true;
-          };
+          buildPythonPackage.pyproject = true;
           mkDerivation = {
             nativeBuildInputs = [
               config.deps.python311Packages.flit
@@ -139,8 +143,8 @@
         propcache = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python311Packages.expandvars
             config.deps.python311Packages.cython
+            config.deps.python311Packages.expandvars
           ];
         };
         pygments = {
@@ -159,6 +163,21 @@
             ];
           };
         };
+        redun = {
+          buildPythonPackage.pyproject = true;
+        };
+        rich = {
+          buildPythonPackage.pyproject = true;
+          mkDerivation.nativeBuildInputs = [
+            config.deps.python311Packages.poetry-core
+          ];
+        };
+        textual = {
+          buildPythonPackage.pyproject = true;
+          mkDerivation.nativeBuildInputs = [
+            config.deps.python311Packages.poetry-core
+          ];
+        };
         typing-extensions = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
@@ -173,6 +192,13 @@
           mkDerivation.nativeBuildInputs = [
             config.deps.python311Packages.hatchling
             config.deps.python311Packages.hatch-vcs
+          ];
+        };
+        yarl = {
+          buildPythonPackage.pyproject = true;
+          mkDerivation.nativeBuildInputs = [
+            config.deps.python311Packages.cython
+            config.deps.python311Packages.expandvars
           ];
         };
       };
