@@ -2,7 +2,7 @@
   description = "Flake for redun using dream2nix";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     dream2nix = {
       url = "github:nix-community/dream2nix";
@@ -46,7 +46,7 @@
 
               mkDerivation = {
                 nativeBuildInputs = [
-                  config.deps.python311Packages.setuptools
+                  config.deps.python3Packages.setuptools
                 ];
               };
             })
