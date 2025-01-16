@@ -304,10 +304,10 @@
       },
       "typing-extensions": {
         "is_direct": false,
-        "sha256": "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8",
+        "sha256": "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz",
-        "version": "4.12.2"
+        "url": "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz",
+        "version": "4.11.0"
       },
       "uc-micro-py": {
         "is_direct": false,
@@ -485,5 +485,5 @@
       }
     }
   },
-  "invalidationHash": "e8a0e08e08eea816b6c3cc0802b0746137173cfb916b352124b976db33367e5f"
+  "invalidationHash": "8ec41ed53c918f5aa34fbcff3c1e71463388bc1257d8486bb8cff42e90b1c34f"
 }
