@@ -52,24 +52,24 @@
       },
       "awscli": {
         "is_direct": false,
-        "sha256": "74acf4bbfea6b417aae4d120776bd2b738ec5d63b13f387f61c2b5801a54c525",
+        "sha256": "1bc2ebe43081d9d3fbb755cecc9a06fe54904edf71a6accf4b95babe5a9d5df9",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/b1/15/a0e5b361d16912ee28d28dc5f6f4269adddcb727fd7f393b59966c1f74dd/awscli-1.36.33.tar.gz",
-        "version": "1.36.33"
+        "url": "https://files.pythonhosted.org/packages/e3/99/6554a3c10f80ff28b86951025106d2a6c16332e43daf327665bcf6b5e39c/awscli-1.36.34.tar.gz",
+        "version": "1.36.34"
       },
       "boto3": {
         "is_direct": false,
-        "sha256": "f7851cb320dcb2a53fc73b4075187ec9b05d51291539601fa238623fdc0e8cd3",
+        "sha256": "2446e819cf4e295833474cdcf2c92bc82718ce537e9ee1f17f7e3d237f60e69b",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/3f/de/a96f2aa9a5770932e5bc3a9d3a6b4e0270487d5846a3387d5f5148e4c974/boto3-1.35.92.tar.gz",
-        "version": "1.35.92"
+        "url": "https://files.pythonhosted.org/packages/4c/9f/866d602492987854ecbec3d29119738d33b584f38c2e8d4ff26e3bf968e8/boto3-1.35.93.tar.gz",
+        "version": "1.35.93"
       },
       "botocore": {
         "is_direct": false,
-        "sha256": "caa7d5d857fed5b3d694b89c45f82b9f938f840e90a4eb7bf50aa65da2ba8f82",
+        "sha256": "b8d245a01e7d64c41edcf75a42be158df57b9518a83a3dbf5c7e4b8c2bc540cc",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/bf/e1/4f3d4e43d10a4070aa43c6d9c0cfd40fe53dbd1c81a31f237c29a86735a3/botocore-1.35.92.tar.gz",
-        "version": "1.35.92"
+        "url": "https://files.pythonhosted.org/packages/d7/4f/95d69a973620d2e9377e5dca0a5ffe0c0767e3a6764161ca995e2bab1636/botocore-1.35.93.tar.gz",
+        "version": "1.35.93"
       },
       "certifi": {
         "is_direct": false,
@@ -290,10 +290,10 @@
       },
       "sqlalchemy": {
         "is_direct": false,
-        "sha256": "7f2767680b6d2398aea7082e45a774b2b0767b5c8d8ffb9c8b683088ea9b29c5",
+        "sha256": "12b28d99a9c14eaf4055810df1001557176716de0167b91026e648e65229bffb",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/50/65/9cbc9c4c3287bed2499e05033e207473504dc4df999ce49385fb1f8b058a/sqlalchemy-2.0.36.tar.gz",
-        "version": "2.0.36"
+        "url": "https://files.pythonhosted.org/packages/3b/20/93ea2518df4d7a14ebe9ace9ab8bb92aaf7df0072b9007644de74172b06c/sqlalchemy-2.0.37.tar.gz",
+        "version": "2.0.37"
       },
       "textual": {
         "is_direct": false,
@@ -325,10 +325,10 @@
       },
       "wrapt": {
         "is_direct": false,
-        "sha256": "16187aa2317c731170a88ef35e8937ae0f533c402872c1ee5e6d079fcf320801",
+        "sha256": "41388e9d4d1522446fe79d3213196bd9e3b301a336965b9e27ca2788ebd122f3",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/24/a1/fc03dca9b0432725c2e8cdbf91a349d2194cf03d8523c124faebe581de09/wrapt-1.17.0.tar.gz",
-        "version": "1.17.0"
+        "url": "https://files.pythonhosted.org/packages/c3/fc/e91cc220803d7bc4db93fb02facd8461c37364151b8494762cc88b0fbcef/wrapt-1.17.2.tar.gz",
+        "version": "1.17.2"
       },
       "yarl": {
         "is_direct": false,
