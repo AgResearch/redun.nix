@@ -39,6 +39,10 @@
                 ];
             };
           };
+
+          packages = {
+            default = python-with-redun;
+          };
         }
       );
 }

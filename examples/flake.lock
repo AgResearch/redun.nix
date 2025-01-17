@@ -3,6 +3,7 @@
     "dream2nix": {
       "inputs": {
         "nixpkgs": [
+          "redun",
           "nixpkgs"
         ],
         "purescript-overlay": "purescript-overlay",
@@ -76,6 +77,7 @@
       "inputs": {
         "flake-compat": "flake-compat",
         "nixpkgs": [
+          "redun",
           "dream2nix",
           "nixpkgs"
         ],
@@ -112,16 +114,39 @@
         "type": "github"
       }
     },
-    "root": {
+    "redun": {
       "inputs": {
         "dream2nix": "dream2nix",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737069751,
+        "narHash": "sha256-PaNboB4zcfgZ2CM2eI+O9/9EF3NQBi/6iwKcGYDXc+E=",
+        "owner": "AgResearch",
+        "repo": "redun.nix",
+        "rev": "071f448dfe773810cbf2491f6aca7ecc27895a9a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AgResearch",
+        "ref": "dev",
+        "repo": "redun.nix",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "redun": "redun"
       }
     },
     "slimlock": {
       "inputs": {
         "nixpkgs": [
+          "redun",
           "dream2nix",
           "purescript-overlay",
           "nixpkgs"
