@@ -5,7 +5,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     redun = {
       # url = "github:AgResearch/redun.nix?ref=refs/tags/24.05";
-      url = "github:AgResearch/redun.nix/dev";
+      url = "..";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -22,26 +22,29 @@
             redun = inputs.redun.packages.${system}.default;
           };
 
-          python-with-redun = pkgs.python3.withPackages (python-pkgs: [
-            flakePkgs.redun
-            # add any other required packages here, either from nixpkgs or other flakes
-          ]);
+          python-with-redun = pkgs.symlinkJoin
+            {
+              name = "python-with-redun";
+              paths = [
+                flakePkgs.redun
+                (
+                  pkgs.python3.withPackages (python-pkgs: [
+                    # add any other required packages here, either from nixpkgs or other flakes
+                    python-pkgs.pytest
+                  ])
+                )
+              ];
+            };
 
         in
         with pkgs;
         {
-          devShells = {
-            default = mkShell {
-              buildInputs =
-                [
-                  bashInteractive
-                  python-with-redun
-                ];
-            };
-          };
-
-          packages = {
-            default = python-with-redun;
+          devShells.default = mkShell {
+            buildInputs =
+              [
+                bashInteractive
+                python-with-redun
+              ];
           };
         }
       );
