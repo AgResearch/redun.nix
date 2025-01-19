@@ -1,10 +1,10 @@
 {
   description = "Example of consuming redun flake package";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-utils.url = "github:numtide/flake-utils";
     redun = {
-      # url = "github:AgResearch/redun.nix?ref=refs/tags/24.05";
+      # url = "github:AgResearch/redun.nix?ref=refs/tags/24.11";
       url = "..";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -28,7 +28,7 @@
               paths = [
                 flakePkgs.redun
                 (
-                  pkgs.python3.withPackages (python-pkgs: [
+                  pkgs.python311.withPackages (python-pkgs: [
                     # add any other required packages here, either from nixpkgs or other flakes
                     python-pkgs.pytest
                   ])

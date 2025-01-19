@@ -8,11 +8,11 @@
   ];
 
   deps = { nixpkgs, ... }: {
-    python = nixpkgs.python3;
+    python = nixpkgs.python311;
     inherit
       (nixpkgs)
       gcc
-      python3Packages
+      python311Packages
       ;
   };
 
@@ -59,13 +59,13 @@
         aiohappyeyeballs = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.poetry-core
+            config.deps.python311Packages.poetry-core
           ];
         };
         aioitertools = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.flit
+            config.deps.python311Packages.flit
           ];
         };
         attrs = {
@@ -74,9 +74,9 @@
             patches = [ ./patches/attrs-24.3.0.license-files.patch ];
 
             nativeBuildInputs = [
-              config.deps.python3Packages.hatchling
-              config.deps.python3Packages.hatch-vcs
-              config.deps.python3Packages.hatch-fancy-pypi-readme
+              config.deps.python311Packages.hatchling
+              config.deps.python311Packages.hatch-vcs
+              config.deps.python311Packages.hatch-fancy-pypi-readme
             ];
           };
         };
@@ -84,7 +84,7 @@
           buildPythonPackage.pyproject = true;
           mkDerivation = {
             nativeBuildInputs = [
-              config.deps.python3Packages.hatchling
+              config.deps.python311Packages.hatchling
             ];
           };
         };
@@ -97,27 +97,27 @@
         frozenlist = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.cython
-            config.deps.python3Packages.expandvars
+            config.deps.python311Packages.cython
+            config.deps.python311Packages.expandvars
           ];
         };
         fsspec = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.hatchling
-            config.deps.python3Packages.hatch-vcs
+            config.deps.python311Packages.hatchling
+            config.deps.python311Packages.hatch-vcs
           ];
         };
         idna = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.flit
+            config.deps.python311Packages.flit
           ];
         };
         markdown-it-py = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.flit
+            config.deps.python311Packages.flit
           ];
         };
         linkify-it-py = {
@@ -127,15 +127,15 @@
           buildPythonPackage.pyproject = true;
           mkDerivation = {
             nativeBuildInputs = [
-              config.deps.python3Packages.flit
-              config.deps.python3Packages.markdown-it-py
+              config.deps.python311Packages.flit
+              config.deps.python311Packages.markdown-it-py
             ];
           };
         };
         mdurl = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.flit
+            config.deps.python311Packages.flit
           ];
         };
         platformdirs = {
@@ -144,22 +144,22 @@
             patches = [ ./patches/platformdirs-4.3.6.hatchling-version.patch ];
 
             nativeBuildInputs = [
-              config.deps.python3Packages.hatchling
-              config.deps.python3Packages.hatch-vcs
+              config.deps.python311Packages.hatchling
+              config.deps.python311Packages.hatch-vcs
             ];
           };
         };
         propcache = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.cython
-            config.deps.python3Packages.expandvars
+            config.deps.python311Packages.cython
+            config.deps.python311Packages.expandvars
           ];
         };
         pygments = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.hatchling
+            config.deps.python311Packages.hatchling
           ];
         };
         python-dateutil = {
@@ -168,29 +168,26 @@
             patches = [ ./patches/python-dateutil-2.9.0.post0.setuptools-scm-version.patch ];
 
             nativeBuildInputs = [
-              config.deps.python3Packages.setuptools-scm
+              config.deps.python311Packages.setuptools-scm
             ];
           };
         };
         rich = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.poetry-core
+            config.deps.python311Packages.poetry-core
           ];
         };
         textual = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.poetry-core
+            config.deps.python311Packages.poetry-core
           ];
         };
         typing-extensions = {
-          # match version with nixpkgs/nixos-24.05
-          version = "4.11.0";
-
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.flit
+            config.deps.python311Packages.flit
           ];
         };
         uc-micro-py = {
@@ -199,15 +196,15 @@
         urllib3 = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.hatchling
-            config.deps.python3Packages.hatch-vcs
+            config.deps.python311Packages.hatchling
+            config.deps.python311Packages.hatch-vcs
           ];
         };
         yarl = {
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
-            config.deps.python3Packages.cython
-            config.deps.python3Packages.expandvars
+            config.deps.python311Packages.cython
+            config.deps.python311Packages.expandvars
           ];
         };
       };

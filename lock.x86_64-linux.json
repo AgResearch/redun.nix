@@ -3,10 +3,10 @@
     "sources": {
       "aiobotocore": {
         "is_direct": false,
-        "sha256": "a3041333c565bff9d63b4468bee4944f2d81cff63a45b10e5cc652f3837f9cc2",
+        "sha256": "c54db752c5a742bf1a05c8359a93f508b4bf702b0e6be253a4c9ef1f9c9b6706",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/06/1e/0974ea18d6b82fa2b51d992c1db4263bebef3a53f13df1e92c4d52fbe747/aiobotocore-2.17.0.tar.gz",
-        "version": "2.17.0"
+        "url": "https://files.pythonhosted.org/packages/5f/38/a71d13726568ba0189978a5a66c08b5d0359d446513ebdba53056763f4cb/aiobotocore-2.18.0.tar.gz",
+        "version": "2.18.0"
       },
       "aiohappyeyeballs": {
         "is_direct": false,
@@ -52,24 +52,24 @@
       },
       "awscli": {
         "is_direct": false,
-        "sha256": "1bc2ebe43081d9d3fbb755cecc9a06fe54904edf71a6accf4b95babe5a9d5df9",
+        "sha256": "0f9f0f030b2a87d1c84cbc88a34e4b449bd13172944e763021fc50222dfd8379",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/e3/99/6554a3c10f80ff28b86951025106d2a6c16332e43daf327665bcf6b5e39c/awscli-1.36.34.tar.gz",
-        "version": "1.36.34"
+        "url": "https://files.pythonhosted.org/packages/d4/9f/4eefa3feb485e39e8fad7affa01e1bbb3a7ab1186c5c04c8be4110d7d4b4/awscli-1.37.1.tar.gz",
+        "version": "1.37.1"
       },
       "boto3": {
         "is_direct": false,
-        "sha256": "2446e819cf4e295833474cdcf2c92bc82718ce537e9ee1f17f7e3d237f60e69b",
+        "sha256": "258ab77225a81d3cf3029c9afe9920cd9dec317689dfadec6f6f0a23130bb60a",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/4c/9f/866d602492987854ecbec3d29119738d33b584f38c2e8d4ff26e3bf968e8/boto3-1.35.93.tar.gz",
-        "version": "1.35.93"
+        "url": "https://files.pythonhosted.org/packages/bf/04/0c6cea060653eee75f4348152dfc0aa0b241f7d1f99a530079ee44d61e4b/boto3-1.36.1.tar.gz",
+        "version": "1.36.1"
       },
       "botocore": {
         "is_direct": false,
-        "sha256": "b8d245a01e7d64c41edcf75a42be158df57b9518a83a3dbf5c7e4b8c2bc540cc",
+        "sha256": "f789a6f272b5b3d8f8756495019785e33868e5e00dd9662a3ee7959ac939bb12",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/d7/4f/95d69a973620d2e9377e5dca0a5ffe0c0767e3a6764161ca995e2bab1636/botocore-1.35.93.tar.gz",
-        "version": "1.35.93"
+        "url": "https://files.pythonhosted.org/packages/39/aa/556720b3ee9629b7c4366b5a0d9797a84e83a97f78435904cbb9bdc41939/botocore-1.36.1.tar.gz",
+        "version": "1.36.1"
       },
       "certifi": {
         "is_direct": false,
@@ -276,10 +276,10 @@
       },
       "s3transfer": {
         "is_direct": false,
-        "sha256": "29edc09801743c21eb5ecbc617a152df41d3c287f67b615f73e5f750583666a7",
+        "sha256": "3f25c900a367c8b7f7d8f9c34edc87e300bde424f779dc9f0a8ae4f9df9264f6",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/c0/0a/1cdbabf9edd0ea7747efdf6c9ab4e7061b085aa7f9bfc36bb1601563b069/s3transfer-0.10.4.tar.gz",
-        "version": "0.10.4"
+        "url": "https://files.pythonhosted.org/packages/1a/aa/fdd958c626b00e3f046d4004363e7f1a2aba4354f78d65ceb3b217fa5eb8/s3transfer-0.11.1.tar.gz",
+        "version": "0.11.1"
       },
       "six": {
         "is_direct": false,
@@ -304,10 +304,10 @@
       },
       "typing-extensions": {
         "is_direct": false,
-        "sha256": "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0",
+        "sha256": "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz",
-        "version": "4.11.0"
+        "url": "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz",
+        "version": "4.12.2"
       },
       "uc-micro-py": {
         "is_direct": false,
@@ -485,5 +485,5 @@
       }
     }
   },
-  "invalidationHash": "8ec41ed53c918f5aa34fbcff3c1e71463388bc1257d8486bb8cff42e90b1c34f"
+  "invalidationHash": "22980ca6830a824d800dc098733fb57d3e9e91ca41f6f6702921ed924e546ac3"
 }

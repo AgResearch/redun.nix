@@ -2,7 +2,7 @@
   description = "Flake for redun using dream2nix";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-utils.url = "github:numtide/flake-utils";
 
     dream2nix = {
@@ -34,7 +34,7 @@
               paths.package = ./.;
 
               buildPythonPackage.pyproject = lib.mkDefault true;
-              mkDerivation.nativeBuildInputs = with config.deps.python3Packages; [ setuptools wheel ];
+              mkDerivation.nativeBuildInputs = with config.deps.python311Packages; [ setuptools wheel ];
               pip = {
                 ignoredDependencies = [ "wheel" "setuptools" ];
               };
