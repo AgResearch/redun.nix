@@ -17,7 +17,7 @@
   };
 
   name = "redun";
-  version = "0.22.0";
+  version = "0.25.0";
 
   buildPythonPackage = {
     pyproject = true;

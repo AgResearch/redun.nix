@@ -241,10 +241,10 @@
       },
       "redun": {
         "is_direct": false,
-        "sha256": "d679c1b5e6453832b3f6427c97d9e76ec30163a9df5061704b211028a6744510",
+        "sha256": "3f23f8a5571715278ba8485f06b7a5a11fd10e21b5ba1a5292eef491ee31647d",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/4f/6c/691cbce348933cc6d11459e18852e8d747568b1e4baa76ea43cc51e9b152/redun-0.22.0.tar.gz",
-        "version": "0.22.0"
+        "url": "https://files.pythonhosted.org/packages/ef/4f/d19ea0fb8b0b5798794bad6a0cdaa5c0269d6923ea82c03cd4c667d45a15/redun-0.25.0.tar.gz",
+        "version": "0.25.0"
       },
       "requests": {
         "is_direct": false,
@@ -485,5 +485,5 @@
       }
     }
   },
-  "invalidationHash": "22980ca6830a824d800dc098733fb57d3e9e91ca41f6f6702921ed924e546ac3"
+  "invalidationHash": "b8dbed6cc6a5a86db09aeca3960fbb624b71f7adeb74fd2b182d341ef4e20c0b"
 }
