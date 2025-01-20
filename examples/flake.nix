@@ -8,11 +8,6 @@
       url = "..";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    gquery = {
-      # TODO switch back to main branch
-      url = "git+ssh://k-devops-pv01.agresearch.co.nz/tfs/Scientific/Bioinformatics/_git/gquery?ref=refs/heads/gbs_prism";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs:
@@ -23,20 +18,15 @@
             inherit system;
           };
 
-          flakePkgs = {
-            gquery-api = inputs.gquery.packages.${system}.api;
-
-          };
-
-          redun = inputs.redun.lib.${system}.redun {
-            python = python-with-gquery;
-          };
-
-          python-with-gquery = pkgs.python3.withPackages
+          python-with-packages = pkgs.python3.withPackages
             (python-pkgs: [
               # add any other required packages here, either from nixpkgs or other flakes
-              flakePkgs.gquery-api
+              python-pkgs.pytest
             ]);
+
+          redun = inputs.redun.lib.${system}.redun {
+            python = python-with-packages;
+          };
 
         in
         with pkgs;
@@ -45,15 +35,8 @@
             buildInputs =
               [
                 bashInteractive
-                # python-with-gquery
                 redun
               ];
-          };
-
-          packages = {
-            inherit redun;
-            gquery-api = flakePkgs.gquery-api;
-            python = python-with-gquery;
           };
         }
       );
