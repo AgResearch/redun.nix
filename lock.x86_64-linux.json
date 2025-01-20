@@ -38,10 +38,10 @@
       },
       "alembic": {
         "is_direct": false,
-        "sha256": "b00892b53b3642d0b8dbedba234dbf1924b69be83a9a769d5a624b01094e304b",
+        "sha256": "496e888245a53adf1498fcab31713a469c65836f8de76e01399aa1c3e90dd213",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/00/1e/8cb8900ba1b6360431e46fb7a89922916d3a1b017a8908a7c0499cc7e5f6/alembic-1.14.0.tar.gz",
-        "version": "1.14.0"
+        "url": "https://files.pythonhosted.org/packages/99/09/f844822e4e847a3f0bd41797f93c4674cd4d2462a3f6c459aa528cdf786e/alembic-1.14.1.tar.gz",
+        "version": "1.14.1"
       },
       "attrs": {
         "is_direct": false,
@@ -304,10 +304,10 @@
       },
       "typing-extensions": {
         "is_direct": false,
-        "sha256": "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8",
+        "sha256": "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz",
-        "version": "4.12.2"
+        "url": "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz",
+        "version": "4.11.0"
       },
       "uc-micro-py": {
         "is_direct": false,
@@ -485,5 +485,5 @@
       }
     }
   },
-  "invalidationHash": "b8dbed6cc6a5a86db09aeca3960fbb624b71f7adeb74fd2b182d341ef4e20c0b"
+  "invalidationHash": "b6be1953edf86f36a2e55a775bf8be605b732985fdba50fa5513db9e00f26e26"
 }
