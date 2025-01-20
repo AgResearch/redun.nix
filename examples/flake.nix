@@ -24,24 +24,19 @@
           };
 
           flakePkgs = {
-            redun = inputs.redun.packages.${system}.default;
             gquery-api = inputs.gquery.packages.${system}.api;
 
           };
 
-          python-with-redun = pkgs.symlinkJoin
-            {
-              name = "python-with-redun";
-              paths = [
-                flakePkgs.redun
-                (
-                  pkgs.python3.withPackages (python-pkgs: [
-                    # add any other required packages here, either from nixpkgs or other flakes
-                    python-pkgs.pytest
-                  ])
-                )
-              ];
-            };
+          redun = inputs.redun.lib.${system}.redun {
+            python = python-with-gquery;
+          };
+
+          python-with-gquery = pkgs.python3.withPackages
+            (python-pkgs: [
+              # add any other required packages here, either from nixpkgs or other flakes
+              flakePkgs.gquery-api
+            ]);
 
         in
         with pkgs;
@@ -50,20 +45,16 @@
             buildInputs =
               [
                 bashInteractive
-                python-with-redun
+                # python-with-gquery
+                redun
               ];
           };
 
           packages = {
-            redun = flakePkgs.redun;
+            inherit redun;
             gquery-api = flakePkgs.gquery-api;
-            python = pkgs.python3.withPackages
-              (python-pkgs: [
-                flakePkgs.redun
-                flakePkgs.gquery-api
-              ]);
+            python = python-with-gquery;
           };
         }
       );
 }
-
