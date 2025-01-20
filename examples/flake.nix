@@ -8,6 +8,11 @@
       url = "..";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gquery = {
+      # TODO switch back to main branch
+      url = "git+ssh://k-devops-pv01.agresearch.co.nz/tfs/Scientific/Bioinformatics/_git/gquery?ref=refs/heads/gbs_prism";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -20,6 +25,8 @@
 
           flakePkgs = {
             redun = inputs.redun.packages.${system}.default;
+            gquery-api = inputs.gquery.packages.${system}.api;
+
           };
 
           python-with-redun = pkgs.symlinkJoin
@@ -45,6 +52,16 @@
                 bashInteractive
                 python-with-redun
               ];
+          };
+
+          packages = {
+            redun = flakePkgs.redun;
+            gquery-api = flakePkgs.gquery-api;
+            python = pkgs.python3.withPackages
+              (python-pkgs: [
+                flakePkgs.redun
+                flakePkgs.gquery-api
+              ]);
           };
         }
       );
