@@ -25,6 +25,9 @@
     pythonImportsCheck = [
       "redun"
     ];
+
+    # mitigate duplicated packages error, where this conflicts with the nixpkgs package:
+    catchConflicts = false;
   };
 
   paths.lockFile = "lock.${config.deps.stdenv.system}.json";
@@ -188,11 +191,7 @@
           # match version with nixpkgs/nixos-24.05
           version = "4.11.0";
 
-          buildPythonPackage = {
-            pyproject = true;
-            # mitigate duplicated packages error, where this conflicts with the nixpkgs package:
-            catchConflicts = false;
-          };
+          buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
             config.deps.python3Packages.flit
           ];
