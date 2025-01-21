@@ -1,0 +1,4 @@
+/flake.lock
+/out/
+__pycache__/
+.redun/

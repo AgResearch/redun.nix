@@ -50,7 +50,7 @@
       in
       {
         # if you want redun to have access to your own python packages use this attribute
-        # e.g. lib.${system}.default { buildInputs = [ ... ]; }
+        # e.g. lib.${system}.default { propagatedBuildInputs = [ ... ]; }
         lib.default = redun;
 
         # otherwise this one is the same, but with no extra packages

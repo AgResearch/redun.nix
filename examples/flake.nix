@@ -18,10 +18,10 @@
             inherit system;
           };
 
-          redun = inputs.redun.lib.${system}.default {
-            buildInputs = [
+          redun-with-dependencies = inputs.redun.lib.${system}.default {
+            propagatedBuildInputs = [
               # add any other required packages here, either from nixpkgs or other flakes
-              pkgs.python3Packages.pytest
+              pkgs.python3Packages.biopython
             ];
           };
 
@@ -32,11 +32,11 @@
             buildInputs =
               [
                 bashInteractive
-                redun
+                redun-with-dependencies
               ];
           };
 
-          packages.default = redun;
+          packages.default = redun-with-dependencies;
         }
       );
 }
