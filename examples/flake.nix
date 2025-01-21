@@ -18,14 +18,11 @@
             inherit system;
           };
 
-          python-with-packages = pkgs.python3.withPackages
-            (python-pkgs: [
+          redun = inputs.redun.lib.${system}.default {
+            buildInputs = [
               # add any other required packages here, either from nixpkgs or other flakes
-              python-pkgs.pytest
-            ]);
-
-          redun = inputs.redun.lib.${system}.redun {
-            python = python-with-packages;
+              pkgs.python3Packages.pytest
+            ];
           };
 
         in
@@ -38,6 +35,8 @@
                 redun
               ];
           };
+
+          packages.default = redun;
         }
       );
 }
