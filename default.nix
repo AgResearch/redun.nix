@@ -11,6 +11,7 @@
     python = nixpkgs.python3;
     inherit
       (nixpkgs)
+      fetchFromGitHub
       gcc
       python3Packages
       ;
@@ -18,6 +19,17 @@
 
   name = "redun";
   version = "0.25.0";
+
+  mkDerivation = {
+    src = config.deps.fetchFromGitHub {
+      # use own fork until this is fixed:
+      # https://github.com/insitro/redun/issues/109
+      owner = "tesujimath";
+      repo = "redun";
+      rev = "75b1dcb3f2ee3174a36afa60182c84ce00777e90";
+      hash = "sha256-lAqRkdio14kabms0OLFHFBE+VWXcWfVIRK6tCIcbRv0=";
+    };
+  };
 
   buildPythonPackage = {
     pyproject = true;
