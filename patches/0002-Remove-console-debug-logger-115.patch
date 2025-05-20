@@ -1,0 +1,39 @@
+From 2548d1761ef064b60da692d6c28980626f5ef20f Mon Sep 17 00:00:00 2001
+From: Matt Rasmussen <56042231+mattrasmus@users.noreply.github.com>
+Date: Fri, 14 Mar 2025 08:03:23 -0700
+Subject: [PATCH 2/2] Remove console debug logger (#115)
+
+* remove old logger that was just used for debugging
+---
+ redun/console/utils.py | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+diff --git a/redun/console/utils.py b/redun/console/utils.py
+index 214d880..56c0d13 100644
+--- a/redun/console/utils.py
++++ b/redun/console/utils.py
+@@ -1,4 +1,3 @@
+-import logging
+ import re
+ from itertools import chain
+ from typing import Any, Dict, List, Optional
+@@ -8,16 +7,6 @@ from redun.tags import format_tag_value
+ from redun.utils import format_timestamp, trim_string
+ 
+ NULL = object()
+-logger = logging.getLogger("redun.console")
+-logger.setLevel(logging.INFO)
+-logger.addHandler(logging.FileHandler("/tmp/redun.log"))
+-
+-
+-def log_write(*args: Any) -> None:
+-    """
+-    Debugging function to use when developing with Textual.
+-    """
+-    logger.info(" ".join(map(str, args)))
+ 
+ 
+ def format_link(link_pattern: str, tags: Dict[str, Any]) -> Optional[str]:
+-- 
+2.49.0
+

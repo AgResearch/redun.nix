@@ -17,7 +17,11 @@
   };
 
   name = "redun";
-  version = "0.25.0";
+  version = "0.26.0";
+
+  mkDerivation = {
+    patches = [ ./patches/0002-Remove-console-debug-logger-115.patch ];
+  };
 
   buildPythonPackage = {
     pyproject = true;
@@ -94,7 +98,10 @@
         fancycompleter = {
           buildPythonPackage.pyproject = true;
           mkDerivation = {
-            patches = [ ./patches/fancycompleter-0.9.1.pyproject.patch ];
+            nativeBuildInputs = [
+              config.deps.python3Packages.hatchling
+              config.deps.python3Packages.setuptools-scm
+            ];
           };
         };
         frozenlist = {
@@ -144,8 +151,6 @@
         platformdirs = {
           buildPythonPackage.pyproject = true;
           mkDerivation = {
-            patches = [ ./patches/platformdirs-4.3.6.hatchling-version.patch ];
-
             nativeBuildInputs = [
               config.deps.python3Packages.hatchling
               config.deps.python3Packages.hatch-vcs
@@ -164,6 +169,15 @@
           mkDerivation.nativeBuildInputs = [
             config.deps.python3Packages.hatchling
           ];
+        };
+        pyrepl = {
+          buildPythonPackage.pyproject = true;
+          mkDerivation = {
+            nativeBuildInputs = [
+              config.deps.python3Packages.hatchling
+              config.deps.python3Packages.setuptools-scm
+            ];
+          };
         };
         python-dateutil = {
           buildPythonPackage.pyproject = true;

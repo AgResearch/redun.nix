@@ -43,10 +43,3 @@ To generate a lockfile for a new version, set the version of redun and nixpkgs r
 ```
 nix run '.#default.lock'
 ```
-
-## Nix releases and Python versions
-
-So far I found success with these combinations:
-
-- Nix 24.05 and python3 (which is Python 3.11)
-- Nix 24.11 and python311 (didn't work with python3 which is 3.12 in this Nix release, problems with setupmeta when generating the lockfile)
