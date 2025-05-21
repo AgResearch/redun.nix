@@ -1,10 +1,9 @@
 {
   description = "Example of consuming redun flake package";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     redun = {
-      # url = "github:AgResearch/redun.nix?ref=refs/tags/24.05";
       url = "..";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -18,12 +17,14 @@
             inherit system;
           };
 
-          redun-with-dependencies = inputs.redun.lib.${system}.default {
-            propagatedBuildInputs = [
-              # add any other required packages here, either from nixpkgs or other flakes
-              pkgs.python3Packages.biopython
-            ];
+          flakePkgs = {
+            redun = inputs.redun.packages.${system}.default;
           };
+
+          python-with-packages = pkgs.python3.withPackages (ps: with ps;[
+            flakePkgs.redun
+            biopython
+          ]);
 
         in
         with pkgs;
@@ -32,11 +33,11 @@
             buildInputs =
               [
                 bashInteractive
-                redun-with-dependencies
+                python-with-packages
               ];
           };
 
-          packages.default = redun-with-dependencies;
+          packages.default = python-with-packages;
         }
       );
 }

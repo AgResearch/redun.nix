@@ -25,7 +25,8 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-        redun = mkDerivationExtraArgs: dream2nix.lib.evalModules {
+
+        redun-d2n = dream2nix.lib.evalModules {
           packageSets.nixpkgs = pkgs;
           modules = [
             ./default.nix
@@ -39,7 +40,7 @@
 
               mkDerivation = {
                 nativeBuildInputs = with config.deps.python3Packages; [ setuptools wheel ];
-              } // mkDerivationExtraArgs;
+              };
 
               pip = {
                 ignoredDependencies = [ "wheel" "setuptools" ];
@@ -47,13 +48,30 @@
             })
           ];
         };
+
+        # wrap the dream2nix package as a native Python package
+        # so it may be installed using python3.withPackages
+        redun-d2n-wrapped =
+          let
+            inherit (pkgs.python3) sitePackages;
+            inherit (pkgs.python3Packages) buildPythonPackage;
+          in
+          buildPythonPackage
+            {
+              pname = redun-d2n.name;
+              version = redun-d2n.version;
+              src = redun-d2n;
+              propagatedBuildInputs = redun-d2n.config.mkDerivation.propagatedBuildInputs;
+              format = "other";
+              dontBuild = true;
+              installPhase = ''
+                mkdir -p $out/${sitePackages}
+                cp -r ${redun-d2n.config.public}/${sitePackages}/* $out/${sitePackages}/
+              '';
+            };
+
       in
       {
-        # if you want redun to have access to your own python packages use this attribute
-        # e.g. lib.${system}.default { propagatedBuildInputs = [ ... ]; }
-        lib.default = redun;
-
-        # otherwise this one is the same, but with no extra packages
-        packages.default = redun { };
+        packages.default = redun-d2n-wrapped;
       });
 }

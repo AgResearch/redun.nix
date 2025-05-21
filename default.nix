@@ -196,14 +196,17 @@
           ];
         };
         textual = {
+          # redun is not compatible with later versions
+          version = "1.0.0";
+
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
             config.deps.python3Packages.poetry-core
           ];
         };
         typing-extensions = {
-          # match version with nixpkgs/nixos-24.05
-          version = "4.11.0";
+          # match version with nixpkgs/nixpkgs-unstable
+          version = "4.13.2";
 
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
