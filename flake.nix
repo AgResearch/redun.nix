@@ -65,8 +65,9 @@
               format = "other";
               dontBuild = true;
               installPhase = ''
-                mkdir -p $out/${sitePackages}
+                mkdir -p $out/bin $out/${sitePackages}
                 cp -r ${redun-d2n.config.public}/${sitePackages}/* $out/${sitePackages}/
+                cp -r ${redun-d2n.config.public}/bin/* $out/bin/
               '';
             };
 
