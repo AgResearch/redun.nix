@@ -205,9 +205,6 @@
           ];
         };
         typing-extensions = {
-          # match version with nixpkgs/nixpkgs-unstable
-          version = "4.13.2";
-
           buildPythonPackage.pyproject = true;
           mkDerivation.nativeBuildInputs = [
             config.deps.python3Packages.flit
