@@ -51,25 +51,14 @@
 
         # wrap the dream2nix package as a native Python package
         # so it may be installed using python3.withPackages
-        redun-d2n-wrapped =
-          let
-            inherit (pkgs.python3) sitePackages;
-            inherit (pkgs.python3Packages) buildPythonPackage;
-          in
-          buildPythonPackage
-            {
-              pname = redun-d2n.name;
-              version = redun-d2n.version;
-              src = redun-d2n;
-              propagatedBuildInputs = redun-d2n.config.mkDerivation.propagatedBuildInputs;
-              format = "other";
-              dontBuild = true;
-              installPhase = ''
-                mkdir -p $out/bin $out/${sitePackages}
-                cp -r ${redun-d2n.config.public}/${sitePackages}/* $out/${sitePackages}/
-                cp -r ${redun-d2n.config.public}/bin/* $out/bin/
-              '';
-            };
+        redun-d2n-wrapped = pkgs.callPackage ./wrapDream2nix.nix {
+          package = redun-d2n;
+          replacePropagatedBuildInputs = with pkgs.python3Packages; [
+            alembic
+            sqlalchemy
+            textual
+          ];
+        };
 
       in
       {
