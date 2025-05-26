@@ -40,6 +40,12 @@
 
               mkDerivation = {
                 nativeBuildInputs = with config.deps.python3Packages; [ setuptools wheel ];
+
+                # propagatedBuildInputs = with config.deps.python3Packages; [
+                #   alembic
+                #   sqlalchemy
+                #   textual
+                # ];
               };
 
               pip = {
@@ -53,11 +59,12 @@
         # so it may be installed using python3.withPackages
         redun-d2n-wrapped = pkgs.callPackage ./wrapDream2nix.nix {
           package = redun-d2n;
-          replacePropagatedBuildInputs = with pkgs.python3Packages; [
-            alembic
-            sqlalchemy
-            textual
-          ];
+          # The approach of replacing propagatedBuildInputs after building the package doesn't work.
+          # replacePropagatedBuildInputs = with pkgs.python3Packages; [
+          #   alembic
+          #   sqlalchemy
+          #   textual
+          # ];
         };
 
       in

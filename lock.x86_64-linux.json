@@ -17,10 +17,10 @@
       },
       "aiohttp": {
         "is_direct": false,
-        "sha256": "ae856e1138612b7e412db63b7708735cff4d38d0399f6a5435d3dac2669f558a",
+        "sha256": "e3f0a2b4d7fb16c0d584d9b8860f1e46d39f7d93372b25a6f80c10015a7acdab",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/63/e7/fa1a8c00e2c54b05dc8cb5d1439f627f7c267874e3f7bb047146116020f9/aiohttp-3.11.18.tar.gz",
-        "version": "3.11.18"
+        "url": "https://files.pythonhosted.org/packages/6a/61/d37b33a074ad867d1ecec9f03183e2b9fee067745cae17e73c264f556d57/aiohttp-3.12.0.tar.gz",
+        "version": "3.12.0"
       },
       "aioitertools": {
         "is_direct": false,
@@ -115,10 +115,10 @@
       },
       "fsspec": {
         "is_direct": false,
-        "sha256": "e4f4623bb6221f7407fd695cc535d1f857a077eb247580f4ada34f5dc25fd5c8",
+        "sha256": "2e55e47a540b91843b755e83ded97c6e897fa0942b11490113f09e9c443c2475",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/f2/77/deb99b97981e2e191913454da82d406702405178631c31cd623caebaf1b1/fsspec-2025.5.0.tar.gz",
-        "version": "2025.5.0"
+        "url": "https://files.pythonhosted.org/packages/00/f7/27f15d41f0ed38e8fcc488584b57e902b331da7f7c6dcda53721b15838fc/fsspec-2025.5.1.tar.gz",
+        "version": "2025.5.1"
       },
       "greenlet": {
         "is_direct": false,
@@ -269,10 +269,10 @@
       },
       "s3fs": {
         "is_direct": false,
-        "sha256": "8ddbdc83c98ed55c7397a295596a7106de6f7a126c45798a95ad4d280edb3611",
+        "sha256": "84beffa231b8ed94f8d667e93387b38351e1c4447aedea5c2c19dd88b7fcb658",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/58/54/142a70e4c39a84b2b7c97200b179a4491c9c479f36e5c569c74dbfa96394/s3fs-2025.5.0.tar.gz",
-        "version": "2025.5.0"
+        "url": "https://files.pythonhosted.org/packages/7f/6f/d0ee452580d7d0643a1a776b95dfef2144023f3fc077038e07d651995d34/s3fs-2025.5.1.tar.gz",
+        "version": "2025.5.1"
       },
       "s3transfer": {
         "is_direct": false,
