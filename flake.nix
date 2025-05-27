@@ -1,74 +1,140 @@
 {
-  description = "Flake for redun using dream2nix";
-
+  description = "Flake for gbs_prism";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
 
-    dream2nix = {
-      url = "github:nix-community/dream2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs =
-    { self
-    , flake-utils
-    , dream2nix
-    , nixpkgs
-    ,
-    }:
-    flake-utils.lib.eachDefaultSystem
+  outputs = inputs:
+    inputs.flake-utils.lib.eachDefaultSystem
       (system:
+        let
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+          };
 
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-        };
+          pyrepl = with pkgs;
+            python3Packages.buildPythonPackage rec {
+              pname = "pyrepl";
+              version = "0.11.3";
+              src = pkgs.fetchPypi {
+                inherit pname version;
+                hash = "sha256-qYGnkogRvaV8o76wxnTUFM8Kcfy5o3tnbtQV/QCBdK0=";
+              };
+              pyproject = true;
 
-        redun-d2n = dream2nix.lib.evalModules {
-          packageSets.nixpkgs = pkgs;
-          modules = [
-            ./default.nix
-            ({ config, lib, ... }: {
-              paths.projectRoot = ./.;
-              paths.package = ./.;
+              nativeBuildInputs = with python3Packages;
+                [
+                  setuptools
+                  setuptools_scm
+                ];
+            };
 
-              buildPythonPackage = {
-                pyproject = lib.mkDefault true;
+          fancycompleter = with pkgs;
+            python3Packages.buildPythonPackage rec {
+              pname = "fancycompleter";
+              version = "0.11.1";
+              src = pkgs.fetchPypi {
+                inherit pname version;
+                hash = "sha256-W0rWXXazKxJZJRUW0PHLLYKDKx/4UGaXpwcoR4B1f2k=";
+              };
+              pyproject = true;
+
+              nativeBuildInputs = with python3Packages;
+                [
+                  setuptools
+                  setuptools_scm
+                ];
+
+              propagatedBuildInputs = [
+                pyrepl
+              ];
+            };
+
+          redun = with pkgs;
+            python3Packages.buildPythonPackage {
+              pname = "redun";
+              version = "0.27.0-unstable-2025-05-22";
+              src = pkgs.fetchFromGitHub {
+                owner = "insitro";
+                repo = "redun";
+                rev = "733ffb3671c887544503942027dbfb2a45321eef";
+                hash = "sha256-YjCzwR+gRdZCshxJoLIuna/u5SCltMZ9i+O8On12Ny8=";
               };
 
-              mkDerivation = {
-                nativeBuildInputs = with config.deps.python3Packages; [ setuptools wheel ];
+              format = "setuptools";
 
-                # propagatedBuildInputs = with config.deps.python3Packages; [
-                #   alembic
-                #   sqlalchemy
-                #   textual
-                # ];
-              };
+              doCheck = false;
 
-              pip = {
-                ignoredDependencies = [ "wheel" "setuptools" ];
-              };
-            })
-          ];
-        };
+              nativeBuildInputs = with python3Packages;
+                [
+                  setuptools
+                ];
 
-        # wrap the dream2nix package as a native Python package
-        # so it may be installed using python3.withPackages
-        redun-d2n-wrapped = pkgs.callPackage ./wrapDream2nix.nix {
-          package = redun-d2n;
-          # The approach of replacing propagatedBuildInputs after building the package doesn't work.
-          # replacePropagatedBuildInputs = with pkgs.python3Packages; [
-          #   alembic
-          #   sqlalchemy
-          #   textual
-          # ];
-        };
+              buildInputs = with python3Packages;
+                [
+                  packaging
+                ];
 
-      in
-      {
-        packages.default = redun-d2n-wrapped;
-      });
+              propagatedBuildInputs = with python3Packages;
+                [
+                  aiobotocore
+                  aiohappyeyeballs
+                  aiohttp
+                  aioitertools
+                  aiosignal
+                  alembic
+                  attrs
+                  awscli
+                  boto3
+                  botocore
+                  certifi
+                  charset-normalizer
+                  colorama
+                  docutils
+                  fancycompleter
+                  frozenlist
+                  fsspec
+                  greenlet
+                  idna
+                  jmespath
+                  linkify-it-py
+                  mako
+                  markdown-it-py
+                  markupsafe
+                  mdit-py-plugins
+                  mdurl
+                  multidict
+                  platformdirs
+                  propcache
+                  pyasn1
+                  pygments
+                  pyrepl
+                  python-dateutil
+                  pyyaml
+                  requests
+                  rich
+                  rsa
+                  s3fs
+                  s3transfer
+                  six
+                  sqlalchemy
+                  textual
+                  typing-extensions
+                  uc-micro-py
+                  urllib3
+                  wrapt
+                  yarl
+                ];
+            };
+
+        in
+        {
+          packages = {
+            default = redun;
+
+            inherit fancycompleter pyrepl;
+          };
+        });
 }
