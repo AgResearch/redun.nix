@@ -5,6 +5,8 @@
     flake-utils.url = "github:numtide/flake-utils";
     redun = {
       url = "..";
+      # to reference this flake from other repos, do this instead of the parent directory:
+      # url = "github:AgResearch/redun.nix/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
