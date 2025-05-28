@@ -52,6 +52,17 @@
               ];
             };
 
+          # redun tends to crash when using recent textual, so fix this at an older version for now
+          older-version-of-textual = pkgs.python3Packages.textual.overridePythonAttrs (_: rec {
+            version = "1.0.0";
+            src = pkgs.fetchPypi {
+              pname = "textual";
+              inherit version;
+              sha256 = "sha256-vsn+Y1R8HFUladG3XTCQOLfUVsA/ht+jcG3bCZsVE5k=";
+            };
+            doCheck = false;
+          });
+
           redun = with pkgs;
             python3Packages.buildPythonPackage {
               pname = "redun";
@@ -120,7 +131,11 @@
                   s3transfer
                   six
                   sqlalchemy
-                  textual
+
+                  # awaiting https://github.com/insitro/redun/issues/122 before using textual from nixpkgs:
+                  # textual
+                  older-version-of-textual
+
                   typing-extensions
                   uc-micro-py
                   urllib3
