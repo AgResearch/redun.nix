@@ -64,14 +64,12 @@
           });
 
           redun = with pkgs;
-            python3Packages.buildPythonPackage {
+            python3Packages.buildPythonPackage rec {
               pname = "redun";
-              version = "0.27.0-unstable-2025-05-22";
-              src = pkgs.fetchFromGitHub {
-                owner = "insitro";
-                repo = "redun";
-                rev = "733ffb3671c887544503942027dbfb2a45321eef";
-                hash = "sha256-YjCzwR+gRdZCshxJoLIuna/u5SCltMZ9i+O8On12Ny8=";
+              version = "0.28.0";
+              src = pkgs.fetchPypi {
+                inherit pname version;
+                hash = "sha256-QBlxwQssR3cpansriKMN6bqcAWlcXhHyTjt3dtJxw4U=";
               };
 
               format = "setuptools";
