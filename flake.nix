@@ -1,5 +1,5 @@
 {
-  description = "Flake for gbs_prism";
+  description = "Flake for redun packaging";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -52,24 +52,13 @@
               ];
             };
 
-          # redun tends to crash when using recent textual, so fix this at an older version for now
-          older-version-of-textual = pkgs.python3Packages.textual.overridePythonAttrs (_: rec {
-            version = "1.0.0";
-            src = pkgs.fetchPypi {
-              pname = "textual";
-              inherit version;
-              sha256 = "sha256-vsn+Y1R8HFUladG3XTCQOLfUVsA/ht+jcG3bCZsVE5k=";
-            };
-            doCheck = false;
-          });
-
           redun = with pkgs;
             python3Packages.buildPythonPackage rec {
               pname = "redun";
-              version = "0.28.0";
+              version = "0.32.0";
               src = pkgs.fetchPypi {
                 inherit pname version;
-                hash = "sha256-QBlxwQssR3cpansriKMN6bqcAWlcXhHyTjt3dtJxw4U=";
+                hash = "sha256-b+ihqRj8DT95dmm3uT2IqauHfrxjZiIZDjxHQH+N37c=";
               };
 
               format = "setuptools";
@@ -130,9 +119,7 @@
                   six
                   sqlalchemy
 
-                  # awaiting https://github.com/insitro/redun/issues/122 before using textual from nixpkgs:
-                  # textual
-                  older-version-of-textual
+                  textual
 
                   typing-extensions
                   uc-micro-py
