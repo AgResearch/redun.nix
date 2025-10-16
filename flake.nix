@@ -56,10 +56,16 @@
             python3Packages.buildPythonPackage rec {
               pname = "redun";
               version = "0.32.0";
-              src = pkgs.fetchPypi {
-                inherit pname version;
-                hash = "sha256-b+ihqRj8DT95dmm3uT2IqauHfrxjZiIZDjxHQH+N37c=";
+              src = pkgs.fetchFromGitHub {
+                owner = "AgResearch";
+                repo = "redun";
+                rev = "f29d1530a0bfde68863fd9caf508ac4eb96f98e9";
+                hash = "sha256-Lnywb/D2YyjA97cVwFjQzS6RWLMpEYcVboxbWmMYUaw=";
               };
+              # src = pkgs.fetchPypi{
+              #   inherit pname version;
+              #   hash = "sha256-b+ihqRj8DT95dmm3uT2IqauHfrxjZiIZDjxHQH+N37c=";
+              # };
 
               format = "setuptools";
 
