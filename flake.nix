@@ -53,87 +53,89 @@
             };
 
           redun = with pkgs;
-            python3Packages.buildPythonPackage rec {
-              pname = "redun";
-              version = "0.32.0";
-              src = pkgs.fetchFromGitHub {
-                owner = "AgResearch";
-                repo = "redun";
-                rev = "f29d1530a0bfde68863fd9caf508ac4eb96f98e9";
-                hash = "sha256-Lnywb/D2YyjA97cVwFjQzS6RWLMpEYcVboxbWmMYUaw=";
+            python3Packages.buildPythonPackage
+              # need rec when fetching from PyPI
+              {
+                pname = "redun";
+                version = "0.34.0-unstable-2025-10-24";
+                src = pkgs.fetchFromGitHub {
+                  owner = "insitro";
+                  repo = "redun";
+                  rev = "3de2a979052cc7042b83d85eaacba0d04752dea0";
+                  hash = "sha256-KFg3yyblo6Kchvt/9A/9sAxX0JDZ+W4MQfx4Fcs4vGU=";
+                };
+                # src = pkgs.fetchPypi{
+                #   inherit pname version;
+                #   hash = "";
+                # };
+
+                format = "setuptools";
+
+                doCheck = false;
+
+                nativeBuildInputs = with python3Packages;
+                  [
+                    setuptools
+                  ];
+
+                buildInputs = with python3Packages;
+                  [
+                    packaging
+                  ];
+
+                propagatedBuildInputs = with python3Packages;
+                  [
+                    aiobotocore
+                    aiohappyeyeballs
+                    aiohttp
+                    aioitertools
+                    aiosignal
+                    alembic
+                    attrs
+                    awscli
+                    boto3
+                    botocore
+                    certifi
+                    charset-normalizer
+                    colorama
+                    docutils
+                    fancycompleter
+                    frozenlist
+                    fsspec
+                    greenlet
+                    idna
+                    jmespath
+                    linkify-it-py
+                    mako
+                    markdown-it-py
+                    markupsafe
+                    mdit-py-plugins
+                    mdurl
+                    multidict
+                    platformdirs
+                    propcache
+                    pyasn1
+                    pygments
+                    pyrepl
+                    python-dateutil
+                    pyyaml
+                    requests
+                    rich
+                    rsa
+                    s3fs
+                    s3transfer
+                    six
+                    sqlalchemy
+
+                    textual
+
+                    typing-extensions
+                    uc-micro-py
+                    urllib3
+                    wrapt
+                    yarl
+                  ];
               };
-              # src = pkgs.fetchPypi{
-              #   inherit pname version;
-              #   hash = "sha256-b+ihqRj8DT95dmm3uT2IqauHfrxjZiIZDjxHQH+N37c=";
-              # };
-
-              format = "setuptools";
-
-              doCheck = false;
-
-              nativeBuildInputs = with python3Packages;
-                [
-                  setuptools
-                ];
-
-              buildInputs = with python3Packages;
-                [
-                  packaging
-                ];
-
-              propagatedBuildInputs = with python3Packages;
-                [
-                  aiobotocore
-                  aiohappyeyeballs
-                  aiohttp
-                  aioitertools
-                  aiosignal
-                  alembic
-                  attrs
-                  awscli
-                  boto3
-                  botocore
-                  certifi
-                  charset-normalizer
-                  colorama
-                  docutils
-                  fancycompleter
-                  frozenlist
-                  fsspec
-                  greenlet
-                  idna
-                  jmespath
-                  linkify-it-py
-                  mako
-                  markdown-it-py
-                  markupsafe
-                  mdit-py-plugins
-                  mdurl
-                  multidict
-                  platformdirs
-                  propcache
-                  pyasn1
-                  pygments
-                  pyrepl
-                  python-dateutil
-                  pyyaml
-                  requests
-                  rich
-                  rsa
-                  s3fs
-                  s3transfer
-                  six
-                  sqlalchemy
-
-                  textual
-
-                  typing-extensions
-                  uc-micro-py
-                  urllib3
-                  wrapt
-                  yarl
-                ];
-            };
 
         in
         {
